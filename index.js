@@ -38,6 +38,7 @@ console.log(`The odd numbers you gave are ${getOdds(numbers)}.`);
  */
 function getLength(numbers) {
   // TODO
+  return numbers.length;
 }
 
 /**
@@ -46,6 +47,13 @@ function getLength(numbers) {
  */
 function getSum(numbers) {
   // TODO
+
+  // return numbers.reduce((acc, curr) => acc + curr, 0);
+ // chat gpt ^, so not going to use
+
+ let sum = numbers.reduce(function (x, y) {return x + y;}, 0);
+ return sum;
+ // web reserch/notes ^ 
 }
 
 /**
@@ -54,6 +62,9 @@ function getSum(numbers) {
  */
 function getMean(numbers) {
   // TODO
+  const sum = getSum(numbers);
+  let mean = sum / numbers.length;
+  return mean;
 }
 
 /**
@@ -62,6 +73,7 @@ function getMean(numbers) {
  */
 function getMin(numbers) {
   // TODO
+  return Math.min(...numbers);
 }
 
 /**
@@ -70,6 +82,7 @@ function getMin(numbers) {
  */
 function getMax(numbers) {
   // TODO
+  return Math.max(...numbers);
 }
 
 /**
@@ -78,6 +91,9 @@ function getMax(numbers) {
  */
 function getRange(numbers) {
   // TODO
+  const min = getMin(numbers);
+  const max = getMax(numbers);
+  return max - min;
 }
 
 /**
@@ -86,6 +102,16 @@ function getRange(numbers) {
  */
 function getEvens(numbers) {
   // TODO
+  //filter even numbers
+  //(element%2==0)
+  //return numbers.filter(num => num % 2 === 0);
+  const evens = [];
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] % 2 === 0) {
+      evens.push(numbers[i]);
+    }
+  }
+  return evens;
 }
 
 /**
@@ -94,4 +120,11 @@ function getEvens(numbers) {
  */
 function getOdds(numbers) {
   // TODO
+  const odds = [];
+    for (let i = 0; i < numbers.length; i++) {
+      if (numbers[i] % 2 !== 0) {
+        odds.push(numbers[i]);
+      }
+    }
+    return odds;
 }
